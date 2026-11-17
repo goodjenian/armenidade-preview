@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Armenidade//Agenda//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:sunset-clube-armenio-2026@armenidade
+DTSTAMP:20261117T132531Z
+DTSTART:20261128T200000Z
+DTEND:20261128T220000Z
+SUMMARY:Sunset no Clube Armênio · Confraternização de fim de ano
+LOCATION:Clube Armênio (SAMA)\, Av. Professor Ascendino Reis\, 1450\, Vil
+ a Clementino\, São Paulo\, São Paulo
+DESCRIPTION:Confraternização de fim de ano para celebrar o ano que passou
+ \, fortalecer os laços da comunidade e aproveitar juntos uma tarde especi
+ al no Clube Armênio. DJ\, comida e drinks. Entrada franca.\nSAMA · Clube 
+ Armênio
+END:VEVENT
+END:VCALENDAR
