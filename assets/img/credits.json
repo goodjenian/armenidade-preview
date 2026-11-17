@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "title": "File:Mount Ararat and Khor Virap Monastery, Ararat Plain, Armenia.jpg",
+    "subject_pt": "Monte Ararat e o mosteiro de Khor Virap, Armênia",
+    "subject_en": "Mount Ararat and Khor Virap Monastery, Armenia",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mount_Ararat_and_Khor_Virap_Monastery,_Ararat_Plain,_Armenia.jpg",
+    "width": 2000,
+    "height": 1329,
+    "mobile_file": "hero-m.jpg",
+    "mobile_width": 900,
+    "mobile_height": 1300
+  },
+  "legado": {
+    "file": "legado.jpg",
+    "title": "File:Mártires Armênios 2.jpg",
+    "subject_pt": "Monumento aos Mártires Armênios e khachkar, São Paulo",
+    "subject_en": "Armenian Martyrs Monument and khachkar, São Paulo",
+    "author": "Laura Longone",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:M%C3%A1rtires_Arm%C3%AAnios_2.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  "organizacoes": {
+    "file": "organizacoes.jpg",
+    "title": "File:Igreja Apostólica Armênia de São Paulo.jpg",
+    "subject_pt": "Catedral Armênia São Jorge, São Paulo",
+    "subject_en": "St. George Armenian Apostolic Cathedral, São Paulo",
+    "author": "Dantadd",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Igreja_Apost%C3%B3lica_Arm%C3%AAnia_de_S%C3%A3o_Paulo.jpg",
+    "width": 1600,
+    "height": 1934
+  },
+  "semana": {
+    "file": "semana.jpg",
+    "title": "File:02 Armenian folk dance.jpg",
+    "subject_pt": "Dança folclórica armênia no Taraz Fest, Yerevan",
+    "subject_en": "Armenian folk dance at Taraz Fest, Yerevan",
+    "author": "Volare42",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:02_Armenian_folk_dance.jpg",
+    "width": 1600,
+    "height": 1066
+  },
+  "mundo": {
+    "file": "mundo.jpg",
+    "title": "File:Monasterio de Tatev, Armenia, 2016-10-01, DD 89-91 HDR.jpg",
+    "subject_pt": "Mosteiro de Tatev ao entardecer, província de Syunik",
+    "subject_en": "Tatev Monastery at sunset, Syunik Province",
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Monasterio_de_Tatev,_Armenia,_2016-10-01,_DD_89-91_HDR.jpg",
+    "width": 1600,
+    "height": 673
+  },
+  "entrar": {
+    "file": "entrar.jpg",
+    "title": "File:Pomegranate fruit - whole and piece with arils.jpg",
+    "subject_pt": "Romã inteira e aberta, símbolo armênio",
+    "subject_en": "Whole and opened pomegranate, an Armenian symbol",
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pomegranate_fruit_-_whole_and_piece_with_arils.jpg",
+    "width": 1600,
+    "height": 1066
+  }
+}

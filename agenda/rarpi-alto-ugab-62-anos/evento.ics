@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Armenidade//Agenda//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:rarpi-alto-ugab-62-anos@armenidade
+DTSTAMP:20261117T110307Z
+DTSTART:20261122T200000Z
+DTEND:20261122T220000Z
+SUMMARY:Rarpi Alto · UGAB Brasil 62 anos
+LOCATION:Praça das Artes\, Av. São João\, 281\, Centro\, São Paulo\, São 
+ Paulo
+DESCRIPTION:Concerto em comemoração aos 62 anos da UGAB Brasil. Ingressos
+  a partir de 12/11.\nUnião Geral Armênia de Beneficência · UGAB Brasil\nh
+ ttps://armenopole.com/rarpi-alto.html
+URL:https://armenopole.com/rarpi-alto.html
+END:VEVENT
+END:VCALENDAR
