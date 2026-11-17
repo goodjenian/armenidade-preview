@@ -7,7 +7,7 @@ X-WR-CALNAME:Armenidade · Agenda armênia no Brasil
 X-WR-TIMEZONE:America/Sao_Paulo
 BEGIN:VEVENT
 UID:rarpi-alto-ugab-62-anos@armenidade
-DTSTAMP:20261117T231059Z
+DTSTAMP:20261117T231202Z
 DTSTART:20261122T200000Z
 DTEND:20261122T220000Z
 SUMMARY:Rarpi Alto · UGAB Brasil 62 anos
@@ -20,7 +20,7 @@ URL:https://armenopole.com/rarpi-alto.html
 END:VEVENT
 BEGIN:VEVENT
 UID:arpi-alto-almost-you@armenidade
-DTSTAMP:20261117T231059Z
+DTSTAMP:20261117T231202Z
 DTSTART:20261128T003000Z
 DTEND:20261128T023000Z
 SUMMARY:Arpi Alto · Almost You
@@ -32,7 +32,7 @@ URL:https://armenopole.com/arpi-alto-almost-you.html
 END:VEVENT
 BEGIN:VEVENT
 UID:sunset-clube-armenio-2026@armenidade
-DTSTAMP:20261117T231059Z
+DTSTAMP:20261117T231202Z
 DTSTART:20261128T200000Z
 DTEND:20261128T220000Z
 SUMMARY:Sunset no Clube Armênio · Confraternização de fim de ano
