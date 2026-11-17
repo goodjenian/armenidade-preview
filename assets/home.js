@@ -1,8 +1,15 @@
 /* Armenidade · home: semana em 7 colunas que acendem ao entrar na tela + sinal da eternidade girando com a rolagem. */
 (() => {
   const TZ = 'America/Sao_Paulo';
+  const here = document.currentScript && document.currentScript.src;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (window.ScrollCraft) ScrollCraft.mount(document.body);
+  // revelações e paralaxe só em telas largas; no celular o conteúdo aparece direto, sem esperar script
+  if (matchMedia('(min-width: 901px)').matches && !reduce) {
+    const sc = document.createElement('script');
+    sc.src = here ? new URL('scrollcraft.js' + new URL(here).search, here).href : '/assets/scrollcraft.js';
+    sc.onload = () => window.ScrollCraft && ScrollCraft.mount(document.body);
+    document.head.appendChild(sc);
+  }
 
   // ------------------------------------------------------------ semana
   const box = document.querySelector('[data-week]');
@@ -26,9 +33,9 @@
     });
     box.innerHTML = days.map((d) => `<section class="wcol${d.i === 0 ? ' is-today' : ''}"><div class="wcol__head"><b>${esc(d.i === 0 ? L.today : L.days[d.wd].slice(0, 3))}</b><span>${d.day}</span></div>${
       d.items.length ? `<ul>${d.items.map((it) => {
-        const inner = `<time>${esc(it.time || '··:··')}</time><strong>${esc(it.title)}</strong>${it.org ? `<small>${esc(it.org)}</small>` : ''}`;
+        const inner = `${it.time ? `<time>${esc(it.time)}</time>` : ''}<strong>${esc(it.title)}</strong>${it.org ? `<small>${esc(it.org)}</small>` : ''}`;
         return `<li class="${it.ev ? 'is-ev' : ''}">${it.u ? `<a href="${esc(it.u)}">${inner}</a>` : inner}</li>`;
-      }).join('')}</ul>` : ''}${d.items.length < 2 ? `<p class="wcol__empty">${d.items.length ? '' : `${esc(L.empty)}<br>`}<a href="${esc(D.links.invite)}">+ ${esc(L.invite_link)}</a></p>` : ''}</section>`).join('');
+      }).join('')}</ul>` : ''}${d.items.length < 2 ? `<p class="wcol__empty${d.items.length ? ' wcol__empty--more' : ''}">${d.items.length ? '' : `${esc(L.empty)}<br>`}<a href="${esc(D.links.invite)}">+ ${esc(L.invite_link)}</a></p>` : ''}</section>`).join('');
 
     const cols = [...box.children];
     if (reduce || !('IntersectionObserver' in window)) cols.forEach((c) => c.classList.add('is-lit'));

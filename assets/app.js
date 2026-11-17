@@ -5,7 +5,15 @@
   const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   const params = new URLSearchParams(location.search);
   const setParam = (k, v) => { const p = new URLSearchParams(location.search); v ? p.set(k, v) : p.delete(k); history.replaceState(null, '', `${location.pathname}${p.toString() ? '?' + p : ''}${location.hash}`); };
-  const pressChip = (group, attr, val) => $$('.chip', group).forEach((c) => c.setAttribute('aria-pressed', String((c.dataset[attr] || '') === (val || ''))));
+  const pressChip = (group, attr, val) => $$('.chip:not([data-more-filters])', group).forEach((c) => c.setAttribute('aria-pressed', String((c.dataset[attr] || '') === (val || ''))));
+
+  // ------------------------------------------------------------ "mais filtros" (celular): já aberto se algum filtro extra estiver em uso
+  $$('[data-more-filters]').forEach((b) => {
+    const bar = b.closest('.filterbar');
+    const set = (on) => { bar.classList.toggle('is-more', on); b.setAttribute('aria-expanded', String(on)); };
+    set(['cidade', 'org', 'passados', 'idade', 'br'].some((k) => params.get(k)));
+    b.addEventListener('click', () => set(!bar.classList.contains('is-more')));
+  });
 
   // ------------------------------------------------------------ agenda
   const ff = $('[data-filters]');
@@ -22,7 +30,7 @@
       $('[data-empty]').hidden = n > 0;
       pressChip(ff, 'type', st.type);
     };
-    $$('.chip', ff).forEach((c) => c.addEventListener('click', () => { st.type = c.dataset.type; setParam('tipo', st.type); apply(); }));
+    $$('.chip[data-type]', ff).forEach((c) => c.addEventListener('click', () => { st.type = c.dataset.type; setParam('tipo', st.type); apply(); }));
     ff.addEventListener('change', () => { st.city = ff.city.value; st.org = ff.org.value; st.past = ff.past.checked; setParam('cidade', st.city); setParam('org', st.org); setParam('passados', st.past ? '1' : ''); apply(); });
     apply();
   }
@@ -64,7 +72,7 @@
       $('[data-empty]').hidden = n > 0;
       pressChip(pf, 'type', type);
     };
-    $$('.chip', pf).forEach((b) => b.addEventListener('click', () => { type = b.dataset.type; setParam('tipo', type); apply(); }));
+    $$('.chip[data-type]', pf).forEach((b) => b.addEventListener('click', () => { type = b.dataset.type; setParam('tipo', type); apply(); }));
     sel.addEventListener('change', () => { setParam('idade', sel.value === 'any' ? '' : sel.value); apply(); });
     br.addEventListener('change', () => { setParam('br', br.checked ? '1' : ''); apply(); });
     apply();

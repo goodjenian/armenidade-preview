@@ -487,3 +487,132 @@ details.src ul { margin-top: .5rem; font-size: .78rem; }
   .wcol { opacity: 1; transform: none; }
   .eternity__spin { transform: none !important; }
 }
+
+/* ================================================================ REVISÃO MOBILE (17/11)
+   Celular primeiro: nada de zoom ao tocar em campo, alvos de toque com 44 px, letra mínima de 11 px,
+   busca em tela cheia, home que começa pela busca e listas mais curtas. */
+picture { display: contents; }
+.tag { font-size: .7rem; }
+.datebox small, .datebox i { font-size: .66rem; }
+.foot__credits summary { cursor: pointer; width: max-content; padding: .35rem 0; }
+.foot__credits p { margin-top: .4rem; }
+.filterbar__toggle { display: none; }
+.filterbar__toggle[aria-expanded="true"] .sym { transform: rotate(45deg); }
+
+/* toque: alvos maiores sem mudar o desenho */
+@media (pointer: coarse) {
+  .chip { min-height: 2.5rem; }
+  .ecard__actions .chip { min-height: 2.5rem; }
+  .more { padding-block: .8rem; margin-block: -.8rem; }
+  .back { padding-block: .6rem; margin-block: -.6rem 1rem; }
+  .langs a { min-width: 2.75rem; min-height: 2.75rem; display: inline-grid; place-items: center; padding: 0; font-size: .8rem; }
+  .foot__col ul, .foot__langs { gap: .15rem; }
+  .foot__col a, .foot__langs a { display: inline-block; padding-block: .55rem; }
+  .opp2 details summary { padding-block: .55rem; }
+  .opp2__links a { padding-block: .6rem; }
+  .detail__aside summary, .legado-aside summary { padding-block: .6rem; }
+}
+
+@media (max-width: 900px) {
+  /* campos com 16 px: o iPhone não dá zoom ao tocar */
+  input, select, textarea, .hero__search input, .search__bar input { font-size: 16px; }
+  :root { --sc-section: 2.75rem; }
+
+  /* busca ocupa a tela toda; resultados rolam por baixo do teclado */
+  .search__scrim { background: rgb(20 27 51 / .4); }
+  .search__panel { width: 100%; max-width: none; margin: 0; border-radius: 0; height: 100%; height: 100dvh; display: flex; flex-direction: column; }
+  .search__bar { padding: calc(.4rem + env(safe-area-inset-top)) .5rem .4rem 1rem; flex: none; }
+  .search__results { max-height: none; flex: 1; overscroll-behavior: contain; padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
+  .search__item { padding-block: .75rem; }
+  .search__item strong { font-size: 1rem; }
+  .search__item small { font-size: .85rem; }
+
+  /* home: título, busca e atalhos primeiro; a foto vira uma faixa logo abaixo */
+  .hero { padding-block: 1.25rem 1.75rem; }
+  .hero__grid { gap: 1.25rem; }
+  .hero__visual { order: 0; }
+  .hero__lede { margin-top: .6rem; font-size: 1rem; }
+  .hero__search { margin-top: 1.1rem; }
+  .quick { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--sc-gutter) * -1); padding-inline: var(--sc-gutter); }
+  .quick::-webkit-scrollbar { display: none; }
+  .quick li { flex: none; }
+  .hero__photo { aspect-ratio: 16 / 7; border-radius: 16px; box-shadow: var(--shadow-1); }
+  .hero__mark { width: 3.75rem; left: auto; right: .75rem; bottom: -1rem; }
+  .sec__head { margin-bottom: 1rem; }
+
+  /* fotos de seção mais baixas: contexto sem empurrar o conteúdo */
+  .week-photo, .orgs-photo, .opps-photo { aspect-ratio: 21 / 6 !important; min-height: 0 !important; }
+  .legado-photo img { aspect-ratio: 16 / 8; }
+  .sendcard__img { aspect-ratio: 21 / 6; }
+
+  /* semana: lista vertical, cada dia numa linha; sem caixas vazias */
+  .week7 { display: grid; grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; gap: .4rem; margin-inline: 0; padding: 0; scroll-snap-type: none; }
+  .wcol { flex-direction: row; align-items: flex-start; min-height: 0; padding: .7rem .8rem; gap: .9rem; scroll-snap-align: none; }
+  .wcol__head { flex: none; width: 3.1rem; flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .wcol__head span { font-size: 1.35rem; }
+  .wcol ul { flex: 1; min-width: 0; }
+  .wcol li { font-size: .88rem; }
+  .wcol li time { font-size: .76rem; }
+  .wcol li small { font-size: .76rem; }
+  .wcol__empty { margin-top: 0; flex: 1; font-size: .82rem; align-self: center; }
+  .wcol__empty br { display: none; }
+  .wcol__empty a { margin-top: 0; margin-left: .35rem; }
+  .wcol__empty--more { display: none; }
+
+  /* cabeçalho de página mais curto */
+  .phead { padding-block: 1.25rem .9rem; }
+  .phead p { font-size: .95rem; }
+  .page { padding-top: .9rem; }
+
+  /* filtros: tipos numa faixa que desliza; cidade, organização e idade atrás de "Mais filtros" */
+  .subnav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--sc-gutter) * -1); padding-inline: calc(var(--sc-gutter) - .7rem); }
+  .subnav a { flex: none; min-height: 2.75rem; }
+  .filterbar { padding-top: .5rem; gap: .5rem; }
+  .filterbar__toggle { display: inline-flex; justify-self: start; }
+  .filterbar:not(.is-more) .filterbar__row { display: none; }
+  .filterbar__row { flex-direction: column; align-items: stretch; gap: .6rem; }
+  .field--inline { display: grid; grid-template-columns: 6.5rem 1fr; }
+  .field--inline select { max-width: none; width: 100%; min-width: 0; }
+  .check { min-height: 2.75rem; }
+
+  /* cartões de evento: ações alinhadas ao texto, não à data */
+  .ecard__link { gap: .85rem; padding: .95rem; }
+  .ecard__actions { padding: 0 .95rem .95rem calc(.95rem + 3.75rem + .85rem); }
+  .ecard .meta { font-size: .85rem; }
+
+  /* oportunidades: cartão enxuto (o selo do fórum fica para telas largas) */
+  .oppgrid { grid-template-columns: 1fr; gap: .6rem; }
+  .opp2 { padding: 1rem; gap: .5rem; }
+  .opp2 > p { font-size: .9rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .tag--forum { display: none; }
+  .facts--sm { font-size: .85rem; }
+
+  /* textos miúdos sobem para 12 px ou mais */
+  .field > span, .field legend { font-size: .76rem; }
+  .field small { font-size: .82rem; }
+  .ocard2 small, .cat__txt small { font-size: .8rem; }
+  .ocard2__desc { font-size: .86rem; }
+  .foot__title { font-size: .72rem; }
+  .foot__fine { font-size: .78rem; }
+  .month__label { font-size: .78rem; }
+
+  /* rodapé mais curto */
+  .foot__grid { gap: 1.5rem 1rem; padding-block: 1.75rem 1rem; }
+  .foot__sama { margin-top: .8rem; }
+}
+@media (max-width: 420px) {
+  .hero h1 { font-size: 2rem; }
+  .ecard__actions { padding-left: .95rem; }
+}
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  /* sem o motor de revelação no celular: o conteúdo aparece direto */
+  [data-sc-in], [data-sc-stagger] > * { opacity: 1 !important; transform: none !important; }
+}
+@media (max-width: 900px) {
+  .hero__text, .hero__visual { min-width: 0; }
+}
+/* gaveta fechada some também para leitor de tela e tecla Tab */
+@media (max-width: 1180px) {
+  .mnav { visibility: hidden; transition: transform .28s var(--ease), visibility 0s linear .28s; }
+  body.nav-open .mnav { visibility: visible; transition: transform .28s var(--ease); }
+}

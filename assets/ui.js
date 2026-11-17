@@ -77,14 +77,15 @@
     await load();
     render(input.value);
   }
-  function closeSearch() {
+  function closeSearch(byKey = false) {
     S.hidden = true;
     document.documentElement.style.overflow = '';
     window.__lenis?.start();
-    lastFocus?.focus?.();
+    // ao fechar pelo toque, devolve o foco sem acender o anel de foco no botão da lupa
+    lastFocus?.focus?.(byKey ? undefined : { preventScroll: true, focusVisible: false });
   }
   $$('[data-search-open]').forEach((b) => b.addEventListener('click', () => openSearch()));
-  $$('[data-search-close]').forEach((b) => b.addEventListener('click', closeSearch));
+  $$('[data-search-close]').forEach((b) => b.addEventListener('click', () => closeSearch()));
   input.addEventListener('input', () => index && render(input.value));
   input.addEventListener('keydown', (e) => {
     const links = $$('.search__item', res);
@@ -100,7 +101,7 @@
     }
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !S.hidden) closeSearch();
+    if (e.key === 'Escape' && !S.hidden) closeSearch(true);
     if (e.key === '/' && S.hidden && !/^(input|textarea|select)$/i.test(document.activeElement?.tagName || '')) { e.preventDefault(); openSearch(); }
     if (e.key === 'Tab' && !S.hidden) {
       const f = $$('input, button, a[href]', S).filter((x) => x.offsetParent);
@@ -110,7 +111,10 @@
     }
   });
   // campo de busca do hero: abre o painel com o que foi digitado
+  const touch = matchMedia('(pointer: coarse)');
   $$('[data-search-inline]').forEach((f) => {
+    // no celular, tocar no campo já abre a busca em tela cheia (o teclado sobe uma vez só)
+    f.q.addEventListener('focus', () => { if (touch.matches) { const v = f.q.value; f.q.value = ''; f.q.blur(); openSearch(v); } });
     f.addEventListener('submit', (e) => { e.preventDefault(); openSearch(f.q.value); });
     f.q.addEventListener('input', () => { if (f.q.value.trim().length >= 2) { const v = f.q.value; f.q.value = ''; openSearch(v); } });
   });
