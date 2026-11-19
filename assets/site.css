@@ -616,3 +616,11 @@ picture { display: contents; }
   .mnav { visibility: hidden; transition: transform .28s var(--ease), visibility 0s linear .28s; }
   body.nav-open .mnav { visibility: visible; transition: transform .28s var(--ease); }
 }
+/* busca: texto de exemplo nunca cortado no meio da palavra */
+input::placeholder { text-overflow: ellipsis; }
+.hero__search input, .search__bar input { text-overflow: ellipsis; }
+@media (max-width: 560px) {
+  /* no celular o toque no campo já abre a busca: o botão "Buscar" só roubava espaço */
+  .hero__search { padding-right: 1rem; }
+  .hero__search .btn { display: none; }
+}

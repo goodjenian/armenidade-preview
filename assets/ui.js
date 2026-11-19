@@ -6,6 +6,14 @@
   const hdr = $('[data-hdr]');
   const desktop = matchMedia('(min-width: 1181px)');
 
+  // texto de exemplo curto nas telas estreitas (o longo não cabe e era cortado)
+  const narrow = matchMedia('(max-width: 560px)');
+  const setPh = () => $$('[data-ph-short]').forEach((i) => {
+    i.dataset.phLong ??= i.placeholder;
+    i.placeholder = narrow.matches ? i.dataset.phShort : i.dataset.phLong;
+  });
+  setPh(); narrow.addEventListener('change', setPh);
+
   // sombra do cabeçalho ao rolar
   const onScroll = () => hdr.classList.toggle('is-scrolled', scrollY > 4);
   addEventListener('scroll', onScroll, { passive: true });
